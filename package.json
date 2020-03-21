@@ -46,7 +46,12 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Enable/Disable visual 'pip' decoration, that sits alongside the line number."
-                }
+				},
+				"svn-gutter.svnExecutable": {
+					"type": "string",
+					"default": "svn",
+					"description": "Path to svn executable or alternative command"
+				}
             }
         }
     },

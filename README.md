@@ -34,6 +34,8 @@ This extension requires that you're either:
 ## Extension Settings
 **Enable Pips** - By default, the extension displays a coloured pip next to each line number. This can be turned off, whilst still showing the blame information in the tooltip.
 
+**SVN Executable** - Alternative command or path to svn executable. Defaults to `svn`
+
 ## Known Issues
 - A little bit slow, because all unique logs have to be retrieved first. ([#3](https://github.com/BeauAgst/blamer-vs/issues/3))
 - Authentication errors [#5](https://github.com/BeauAgst/blamer-vs/issues/5), [#9](https://github.com/BeauAgst/blamer-vs/issues/9)

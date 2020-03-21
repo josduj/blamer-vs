@@ -24,8 +24,10 @@ const subversion = {
     },
 
     blame() {
+		const { svnExecutable } = vscode.workspace.getConfiguration('svn-gutter');
+
         return new Promise((resolve, reject) => {
-            const script = `svn blame -x "-w --ignore-eol-style" "${this.path}"`;
+			const script = `${svnExecutable} blame -x "-w --ignore-eol-style" "${this.path}"`;
             const process = child_process.spawn(script, { shell: true })
 
             let [stdout, stderr] = ['', ''];
@@ -54,10 +56,12 @@ const subversion = {
     },
 
     getLog(revision) {
-        if (Object.keys(this.revisions).length === 0) return;
+		if (Object.keys(this.revisions).length === 0) return;
+
+		const { svnExecutable } = vscode.workspace.getConfiguration('svn-gutter');
 
         return new Promise((resolve, reject) => {
-            const script = `svn log -r${revision} "${this.path}" --xml`;
+            const script = `${svnExecutable} log -r${revision} "${this.path}" --xml`;
             const process = child_process.spawn(script, { shell: true });
 
             let [stdout, stderr] = ['', ''];
