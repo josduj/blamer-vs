@@ -1,4 +1,6 @@
 const vscode = require('vscode');
+const formatMessage = require('./functions/formatMessage');
+const formatDate = require('./functions/formatDate');
 
 const decoration = {
     decorations: [],
@@ -27,7 +29,11 @@ const decoration = {
             decoration,
             [{
                 range: new vscode.Range(parseInt(line),0,parseInt(line),1000),
-                hoverMessage: new vscode.MarkdownString(`${commit.revision}: ${commit.author}\n\n${commit.date}\n\n${commit.message}`)
+                hoverMessage: new vscode.MarkdownString([
+					`${commit.revision}: ${commit.author}`,
+					formatDate(commit.date),
+					formatMessage(commit.message),
+				].join('\n\n')),
             }]
         );
     },

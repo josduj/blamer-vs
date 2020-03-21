@@ -51,6 +51,16 @@
 					"type": "string",
 					"default": "svn",
 					"description": "Path to svn executable or alternative command"
+				},
+				"svn-gutter.enableJiraLinks": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable/Disable JIRA links in commit messages"
+				},
+				"svn-gutter.jiraUrl": {
+					"type": "string",
+					"default": "https://jira.example.com",
+					"description": "JIRA site URL"
 				}
             }
         }

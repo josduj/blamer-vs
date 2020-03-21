@@ -1,7 +1,6 @@
 const vscode = require('vscode');
 const path = require('path');
 const child_process = require('child_process');
-const formatDate = require('./functions/formatDate');
 
 const subversion = {
     path: '',
@@ -82,7 +81,7 @@ const subversion = {
                         commit.message = commit.message[1];
                     }
                     if (commit.date = stdout.match(/<date>([^<]*)<\/date>/)) {
-                        commit.date = formatDate(commit.date[1]);
+                        commit.date = commit.date[1];
                     }
 
                     resolve(commit);
